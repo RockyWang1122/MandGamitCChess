@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="60dp"
+    android:paddingEnd="60dp"
+    android:paddingTop="7dp"
+    android:paddingBottom="7dp">
+
+    <!-- 左：着法名称 + 胜率 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/cloudMoveName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textColor="@color/panel_text_dark"
+            android:textSize="17sp"
+            tools:ignore="HardcodedText"
+            tools:text="车九进一" />
+
+        <TextView
+            android:id="@+id/cloudWinrate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:maxLines="1"
+            android:textColor="@color/tab_inactive_icon"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText"
+            tools:text="胜率：50.00%" />
+
+    </LinearLayout>
+
+    <!-- 右：评分 -->
+    <TextView
+        android:id="@+id/cloudScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:maxLines="1"
+        android:textSize="15sp"
+        tools:ignore="HardcodedText"
+        tools:text="评分: 0" />
+
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- P3信息区卡片背景（小圆角矩形；灰豆绿半透明，透出山水底图，呈现色约 #D1D4CB，对齐美工 2.jpg 设计） -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#80AEB8AD" />
+    <corners android:radius="12dp" />
+</shape>

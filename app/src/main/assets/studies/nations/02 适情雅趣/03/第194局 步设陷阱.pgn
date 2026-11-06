@@ -1,0 +1,14 @@
+[Game "Chinese Chess"]
+[Event "第194局 步设陷阱"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "3a1a3/3k3c1/1n2RN3/5r3/8R/9/2n6/9/3r1p3/2c1K4 w - - 0 1"]
+
+{弃红车，边车胜}
+1. 车五进一 将4进1 2. 车五平六 马2退4 3. 马四进五 士4进5 {如黑士6进5或炮8平5，红车一进二杀。} 4. 车一进二 1-0

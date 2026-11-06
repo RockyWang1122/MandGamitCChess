@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 识别编辑条目：选中状态勾选框（红底白勾的红色方块） -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/brand_dark" />
+    <corners android:radius="2dp" />
+</shape>

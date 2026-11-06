@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "功归转轴 红胜"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "*"]
+[FEN "1N1a5/4a4/1NC2k3/4p4/9/9/6P1R/9/2pp1pp2/r1c1K3R w - - 0 1"]
+
+1. 前车进四 将6退1 2. 前车进一 将6退1 3. 前车进一 将6进1 4. 后车进八 将6进1 5. 前车平四 士5退6 6. 前马退六 士4进5 7. 车一退一 将6退1 8. 马六退五 *

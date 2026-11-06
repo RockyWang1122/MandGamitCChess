@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "抉尽藩篱 红胜"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "*"]
+[FEN "3ak1bR1/1r2a4/3Pb1R2/4P1Nc1/5C3/9/4p4/4C1n2/3r1p3/4K2c1 w - - 0 1"]
+
+1. 车三进二 象5退7 2. 车二平三 士5退6 3. 兵五平四 卒5进1 4. 车三平四 将5进1 5. 兵六平五 将5进1 6. 兵四平五 将5平4 7. 车四平六 车2平4 8. 兵五进一 *

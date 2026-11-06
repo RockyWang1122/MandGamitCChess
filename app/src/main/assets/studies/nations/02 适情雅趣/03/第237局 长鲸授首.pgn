@@ -1,0 +1,14 @@
+[Game "Chinese Chess"]
+[Event "第237局 长鲸授首"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "5a1C1/3ka4/4b4/7N1/1Rb6/9/9/5n3/2r1p4/c4K3 w - - 0 1"]
+
+{弃车，马炮胜}
+1. 车八进三 将4进1 2. 车八退一 将4退1 3. 炮二退一 士5进6 4. 马二进三 士6进5 5. 车八平六 将4进1 6. 马三退四 1-0

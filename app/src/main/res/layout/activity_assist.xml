@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/boardbg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:tag="inset_nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        android:paddingTop="80dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="橘中弈象棋 · 连线识别指导"
+            android:textColor="#A39A92"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="识别其他棋软画面,在悬浮窗给出走法建议\n只识别目标棋盘。只提示,不自动走子!!"
+            android:textColor="#A39A92"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="注意事项:\n悬浮窗请尽量放在屏幕最上端或者最下端位置,远离检测的棋盘,以避免闪烁 "
+            android:textColor="#A39A92"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_auto_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="状态:尚未启动"
+            android:textColor="#A39A92"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_overlay_permission"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_recog_button_red"
+            android:text="① 授予悬浮窗权限"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_notification_permission"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_recog_button_red"
+            android:text="② 通知权限(Android 13+)"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_start_capture"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_recog_button_red"
+            android:backgroundTint="@color/bg_recog_red_tint"
+            android:enabled="false"
+            android:text="③ 开始屏幕棋盘识别"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+        <RelativeLayout
+            android:id="@+id/row_compliance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <!-- MaterialCheckBox：方框用 colorPrimary（红），勾标记用 colorOnPrimary（白） -->
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_compliance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:checked="false"
+                android:clickable="false"
+                android:focusable="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_toEndOf="@id/cb_compliance"
+                android:text="合规声明:该工具仅用于学习,复盘,残局研究或非正式对弈场景,禁止在正式对局,排位赛或竞技比赛中使用!请点击文字前面勾选框，以示同意!"
+                android:textColor="#FF0000"
+                android:textSize="15sp" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,26 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="30dp"
+    android:height="30dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- 对局模式：人红 · 引擎黑（左=红方人形，右=黑方芯片；无圆形） -->
+
+    <!-- 左：红方人形（圆角方头 + 肩膀）；人执红用暗红 -->
+    <path
+        android:fillColor="#C30600"
+        android:pathData="M5.4,6.3 H7.8 A1.1,1.1 0 0 1 8.9,7.4 V9.7 A1.1,1.1 0 0 1 7.8,10.8 H5.4 A1.1,1.1 0 0 1 4.3,9.7 V7.4 A1.1,1.1 0 0 1 5.4,6.3 Z" />
+    <path
+        android:fillColor="#C30600"
+        android:pathData="M4.8,12.5 H8.4 L11.1,17.3 A0.9,0.9 0 0 1 10.2,18.2 H3.0 A0.9,0.9 0 0 1 2.1,17.3 Z" />
+
+    <!-- 右：黑方芯片（外体与内芯构成镂空；管脚为短线条） -->
+    <path
+        android:fillColor="#2A2A2A"
+        android:fillType="evenOdd"
+        android:pathData="M15.0,8.5 H19.8 A1.2,1.2 0 0 1 21.0,9.7 V14.5 A1.2,1.2 0 0 1 19.8,15.7 H15.0 A1.2,1.2 0 0 1 13.8,14.5 V9.7 A1.2,1.2 0 0 1 15.0,8.5 Z M16.2,10.5 H18.6 A0.6,0.6 0 0 1 19.2,11.1 V13.1 A0.6,0.6 0 0 1 18.6,13.7 H16.2 A0.6,0.6 0 0 1 15.6,13.1 V11.1 A0.6,0.6 0 0 1 16.2,10.5 Z" />
+    <path
+        android:strokeColor="#2A2A2A"
+        android:strokeWidth="1.0"
+        android:strokeLineCap="round"
+        android:pathData="M15.7,6.7 V8.5 M19.1,6.7 V8.5 M15.7,15.7 V17.5 M19.1,15.7 V17.5 M12.6,11.1 H13.8 M12.6,13.1 H13.8 M21.0,11.1 H22.2 M21.0,13.1 H22.2" />
+</vector>

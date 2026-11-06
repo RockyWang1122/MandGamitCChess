@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "短兵相接 正和"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "*"]
+[FEN "2Ra5/2P1ak3/b8/5N3/9/5r1R1/9/4p4/3p1p3/C1p1K4 w - - 0 1"]
+
+1. 马四进六 士5进4 2. 车二平四 将6平5 3. 兵七平六 将5进1 4. 车四退三 卒3平4 5. 帅五平四 卒5平6 6. 车七退九 卒6进1 7. 帅四进一 前卒平3 *

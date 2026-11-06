@@ -1,0 +1,59 @@
+以下在ubbuntu下执行
+
+1. 确认 CPU 架构：
+uname -m
+x86_64 → 下 amd64
+aarch64 → 下 arm64
+
+2. x86_64 示例：
+cd /tmp
+wget https://mirrors.aliyun.com/golang/go1.22.6.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf go1.22.6.linux-amd64.tar.gz
+
+3. 配置环境变量
+echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee /etc/profile.d/go.sh
+source /etc/profile.d/go.sh
+go version
+应该显示 go version go1.22.6 linux/amd64。
+
+4. 编译
+cd battle-server
+export GOPROXY=https://goproxy.cn,direct   # 国内服务器建议
+go mod tidy
+go test ./...                               # 跑 4 个端到端用例
+go build -o battle-server .
+
+5. 运行（Nginx 终结 TLS 时只听本机）
+nohup /opt/battle-server/battle-server --addr=:9001 --path=/battle > battle.log 2>&1 &
+
+注意事项：
+阿里云控制台 → 安全组 → 入方向规则 ：
+放行 TCP 9001 （这是 IP 直连最常见的连不上原因；若服务器开了 ufw 也需`ufw allow 9001/tcp` ）
+
+
+UBUNTU下面自启动：
+sudo nano /etc/systemd/system/battle-server.service
+
+
+[Unit]
+Description=Battle Server
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/battle-server
+ExecStart=/opt/battle-server/battle-server --addr=:9001 --path=/battle
+StandardOutput=append:/opt/battle-server/battle.log
+StandardError=append:/opt/battle-server/battle.log
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+
+-----------------------------------------------------------
+sudo systemctl daemon-reload
+sudo systemctl enable battle-server.service   # 开机自启
+sudo systemctl start battle-server.service    # 立即启动

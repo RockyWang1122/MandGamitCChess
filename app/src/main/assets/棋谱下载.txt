@@ -1,0 +1,1 @@
+棋谱来源于网络以及github：https://github.com/jxsword/qp-corpus/tree/main

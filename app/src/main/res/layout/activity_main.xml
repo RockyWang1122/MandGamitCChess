@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 主页：按 mainpage/整体效果图.jpg (1080x2376) 等比重排 —— 标题 + 3x2 圆形功能按钮 + 底部三段胶囊 -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    tools:context=".MainActivity">
+
+    <!-- 横向位置参考线（占屏宽比例，取自设计图坐标/1080） -->
+    <!-- 六个圆形按钮的左右边界 -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_c1_l"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1065" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_c1_r"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3148" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_c2_l"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3880" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_c2_r"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5963" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_c3_l"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6694" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_c3_r"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8778" />
+
+    <!-- 底部三段胶囊的左右边界 -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_p1_l"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1097" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_p1_r"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3730" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_p2_l"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3730" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_p2_r"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6363" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_p3_l"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6363" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_p3_r"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8996" />
+
+    <!-- 纵向位置参考线（占屏高比例，取自设计图坐标/2376） -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1035" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_row1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2332" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_row2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3561" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8502" />
+
+    <!-- 标题 -->
+    <TextView
+        android:id="@+id/tvAppTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="橘中弈象棋"
+        android:textColor="#47423D"
+        android:textSize="44sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/gl_title" />
+
+    <!-- 右上角关于按钮（素材自带米色圆底与白色 i 图标） -->
+    <ImageView
+        android:id="@+id/button_about"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="23dp"
+        android:background="@null"
+        android:clickable="true"
+        android:contentDescription="关于"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_home_about"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ============ 第一排：人机大战 / 棋盘编辑 / 图片识别 ============ -->
+    <FrameLayout
+        android:id="@+id/button_play"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_home_circle"
+        android:clickable="true"
+        android:contentDescription="人机大战"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/gl_c1_r"
+        app:layout_constraintStart_toStartOf="@id/gl_c1_l"
+        app:layout_constraintTop_toTopOf="@id/gl_row1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="14dp">
+
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_home_play" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="人机大战"
+                android:textColor="#4C4742"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/button_edit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_home_circle"
+        android:clickable="true"
+        android:contentDescription="棋盘编辑"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/gl_c2_r"
+        app:layout_constraintStart_toStartOf="@id/gl_c2_l"
+        app:layout_constraintTop_toTopOf="@id/gl_row1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="14dp">
+
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_home_edit" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="棋盘编辑"
+                android:textColor="#4C4742"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/button_recognize"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_home_circle"
+        android:clickable="true"
+        android:contentDescription="图片识别"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/gl_c3_r"
+        app:layout_constraintStart_toStartOf="@id/gl_c3_l"
+        app:layout_constraintTop_toTopOf="@id/gl_row1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="14dp">
+
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_home_recognize" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="图片识别"
+                android:textColor="#4C4742"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- ============ 第二排：棋软连线 / 盲棋训练 / 好友对战 ============ -->
+    <FrameLayout
+        android:id="@+id/button_link"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_home_circle"
+        android:clickable="true"
+        android:contentDescription="棋软连线"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/gl_c1_r"
+        app:layout_constraintStart_toStartOf="@id/gl_c1_l"
+        app:layout_constraintTop_toTopOf="@id/gl_row2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="14dp">
+
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_home_link" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="棋软连线"
+                android:textColor="#4C4742"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/button_blind"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_home_circle"
+        android:clickable="true"
+        android:contentDescription="盲棋训练"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/gl_c2_r"
+        app:layout_constraintStart_toStartOf="@id/gl_c2_l"
+        app:layout_constraintTop_toTopOf="@id/gl_row2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="14dp">
+
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_home_blind" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="盲棋训练"
+                android:textColor="#4C4742"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/button_invite"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_home_circle"
+        android:clickable="true"
+        android:contentDescription="好友对战"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/gl_c3_r"
+        app:layout_constraintStart_toStartOf="@id/gl_c3_l"
+        app:layout_constraintTop_toTopOf="@id/gl_row2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="14dp">
+
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_home_invite" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="好友对战"
+                android:textColor="#4C4742"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- ============ 底部三段胶囊：棋谱 / 进阶 / 残局 ============ -->
+    <LinearLayout
+        android:id="@+id/button_manuals"
+        android:layout_width="0dp"
+        android:layout_height="63dp"
+        android:background="@drawable/bg_home_pill_left"
+        android:clickable="true"
+        android:contentDescription="棋谱"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="@id/gl_p1_r"
+        app:layout_constraintStart_toStartOf="@id/gl_p1_l"
+        app:layout_constraintTop_toTopOf="@id/gl_bottom">
+
+        <ImageView
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_home_manuals" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="棋谱"
+            android:textColor="#4C4742"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/button_train"
+        android:layout_width="0dp"
+        android:layout_height="63dp"
+        android:background="@drawable/bg_home_pill_mid"
+        android:clickable="true"
+        android:contentDescription="进阶"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="@id/gl_p2_r"
+        app:layout_constraintStart_toStartOf="@id/gl_p2_l"
+        app:layout_constraintTop_toTopOf="@id/gl_bottom">
+
+        <ImageView
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_home_kill" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="进阶"
+            android:textColor="#4C4742"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/button_endgames"
+        android:layout_width="0dp"
+        android:layout_height="63dp"
+        android:background="@drawable/bg_home_pill_right"
+        android:clickable="true"
+        android:contentDescription="残局"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="@id/gl_p3_r"
+        app:layout_constraintStart_toStartOf="@id/gl_p3_l"
+        app:layout_constraintTop_toTopOf="@id/gl_bottom">
+
+        <ImageView
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_home_endgames" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="残局"
+            android:textColor="#4C4742"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

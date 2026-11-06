@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event ""]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "*"]
+[FEN "2bakc3/4a4/9/2N6/1C2R4/3R5/9/2n2r3/3p1r3/4K4 w - - 0 1"]
+
+1. 车六进五 炮6平4 2. 车五进三 将5平6 3. 车五进一 将6进1 4. 车五平四 将6退1 5. 马七进六 将6进1 6. 炮八进三 *

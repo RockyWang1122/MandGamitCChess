@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 好友对战聊天对话框：圆角输入框（内嵌麦克风） + 右侧回车发送，对齐 聊天.png -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <EditText
+            android:id="@+id/chatInput"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_chat_input"
+            android:hint="发送文字（40字内）"
+            android:imeOptions="actionSend"
+            android:inputType="text"
+            android:maxLength="40"
+            android:maxLines="1"
+            android:paddingStart="16dp"
+            android:paddingEnd="52dp"
+            android:textColor="#333333"
+            android:textColorHint="#999999"
+            android:textSize="15sp" />
+
+        <ImageButton
+            android:id="@+id/chatMicButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="4dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="按住说话"
+            android:src="@drawable/ic_chat_mic" />
+    </FrameLayout>
+
+    <ImageButton
+        android:id="@+id/chatSendButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="发送"
+        android:src="@drawable/ic_chat_send" />
+
+</LinearLayout>

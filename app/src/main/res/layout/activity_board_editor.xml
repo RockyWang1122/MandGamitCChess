@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/boardbg"
+    tools:context=".BoardEditorActivity">
+
+    <!-- ===== 布局基准：设计稿 1080×2376，百分比参考线（棋盘与 activity_game.xml 完全一致） ===== -->
+    <!-- 垂直参考线 -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_content_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_board_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9509" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_card_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9694" />
+
+    <!-- 水平参考线 -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_board_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1086" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_palette_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6174" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_palette_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7445" />
+
+    <!-- P1：顶部栏（返回键 + 标题），与对弈界面一致 -->
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:tag="inset_status_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="start|center_vertical"
+                android:layout_marginStart="6dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="返回"
+                app:srcCompat="@drawable/ic_nav_back" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="棋盘编辑"
+                android:textColor="@color/brand_dark"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <!-- P2：棋盘主体（BoardEditorView 按 1414:1716 比例自适应；短屏超高度时自动等比缩小） -->
+        <!-- 左右边界与待排布棋子卡片一致（5%→96.94%），棋盘缩小居中后与卡片左右对称 -->
+        <FrameLayout
+            android:id="@+id/editorBoardLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/gl_palette_top"
+            app:layout_constraintEnd_toEndOf="@id/gl_card_right"
+            app:layout_constraintStart_toStartOf="@id/gl_content_left"
+            app:layout_constraintTop_toTopOf="@id/gl_board_top" />
+
+        <!-- P3：待排布棋子卡片 + 黑先/红先切换（设计坐标 54,1467，高302；圆角/颜色复用 bg_panel_card） -->
+        <LinearLayout
+            android:id="@+id/paletteCard"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_panel_card"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            app:layout_constraintBottom_toBottomOf="@id/gl_palette_bottom"
+            app:layout_constraintEnd_toEndOf="@id/gl_card_right"
+            app:layout_constraintStart_toStartOf="@id/gl_content_left"
+            app:layout_constraintTop_toTopOf="@id/gl_palette_top">
+
+                <!-- 左侧两行棋子（黑方在上、红方在下），单元格代码动态生成 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:id="@+id/paletteRowBlack"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <FrameLayout
+                        android:id="@+id/paletteRowRed"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <!-- 右侧：黑先 / 红先 二选一（RadioButton图标 + 文字） -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="4dp">
+
+                    <LinearLayout
+                        android:id="@+id/btnBlackFirst"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="6dp">
+
+                        <ImageView
+                            android:id="@+id/radioBlack"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:contentDescription="黑先"
+                            android:src="@drawable/ic_radio_unchecked" />
+
+                        <TextView
+                            android:id="@+id/btnBlackFirstText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="黑先"
+                            android:textColor="#3D2C22"
+                            android:textSize="15sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnRedFirst"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginTop="6dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="6dp">
+
+                        <ImageView
+                            android:id="@+id/radioRed"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:contentDescription="红先"
+                            android:src="@drawable/ic_radio_unchecked" />
+
+                        <TextView
+                            android:id="@+id/btnRedFirstText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="红先"
+                            android:textColor="@color/dark_red"
+                            android:textSize="15sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        <!-- P4：底部5个操作按钮，钉在屏幕底部，与对弈界面底部栏同风格 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_bottom_bar"
+            android:orientation="horizontal"
+            android:paddingTop="6dp"
+            android:paddingBottom="8dp"
+            android:tag="inset_nav_bar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:id="@+id/clearFillButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="空/满"
+                    android:src="@drawable/ic_editor_clearfill" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="空/满"
+                    android:textColor="@color/brand_dark"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/recognizeButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="识图"
+                    android:src="@drawable/ic_editor_recognize" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="识图"
+                    android:textColor="@color/brand_dark"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/playButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="对弈"
+                    android:src="@drawable/ic_editor_play" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="对弈"
+                    android:textColor="@color/brand_dark"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/flipButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="翻转"
+                    android:src="@drawable/ic_editor_flip" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="翻转"
+                    android:textColor="@color/brand_dark"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/moreButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="更多"
+                    android:src="@drawable/ic_btn_more" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="更多"
+                    android:textColor="@color/brand_dark"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

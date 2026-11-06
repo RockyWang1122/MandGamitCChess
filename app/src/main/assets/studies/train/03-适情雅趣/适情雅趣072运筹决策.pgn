@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "适情雅趣072运筹决策"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "4k4/5P3/3P5/9/6b2/9/9/2p3p2/4AK1nr/3A1C3 w - - 0 1"]
+
+1. 兵四平五 将5进1 2. 炮四平五 象7退5 3. 仕五进六 象5进7 4. 仕六进五 象7退5 5. 兵六平五 将5退1 6. 兵五进一 将5平4 7. 炮五平六 1-0

@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "炮兵禁双象"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "6b2/3k5/9/2P6/6b2/9/9/C7B/4K4/9 w - - 0 1"]
+
+1. 炮九平三 象7进5 2. 相一进三 象7退9 3. 兵七平六 将4退1 4. 兵六进一 象9进7 5. 炮三退二 1-0

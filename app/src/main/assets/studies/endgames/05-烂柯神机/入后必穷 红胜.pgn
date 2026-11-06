@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "入后必穷 红胜"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "*"]
+[FEN "3k5/4Pn1N1/7c1/7P1/7P1/9/9/8R/2nr1pp2/4K1BNC w - - 0 1"]
+
+1. 车一进七 马6退8 2. 车一平二 炮8退2 3. 炮一进九 炮8进3 4. 前马进四 炮8退3 5. 马四退二 炮8进4 6. 前马进四 炮8退4 7. 马四退三 炮8进2 8. 马三进二 *

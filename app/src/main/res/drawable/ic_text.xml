@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 好友对战"文字"按钮：文字消息（键盘气泡图标，透明底，brand_dark 与其他按钮一致） -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="1024"
+    android:viewportHeight="1024">
+    <path
+        android:fillColor="#FF4E4E4C"
+        android:pathData="M513.76 908a395.34 395.34 0 1 1 154.35-31.17A394.09 394.09 0 0 1 513.76 908z m0-740c-189.4 0-343.5 154.09-343.5 343.5S324.36 855 513.76 855s343.5-154.09 343.5-343.5S703.17 168 513.76 168z"/>
+    <path
+        android:fillColor="#FF4E4E4C"
+        android:pathData="M287.54 332.22h89.69v89.69h-89.69z m119.58 0h89.69v89.69h-89.69z m119.58 0h89.69v89.69H526.7z m119.58 0h89.69v89.69h-89.69zM287.54 451.8h89.69v89.69h-89.69z m119.58 0h89.69v89.69h-89.69z m119.58 0h89.69v89.69H526.7z m119.58 0h89.69v89.69h-89.69zM392.17 616.22h239.16v89.69H392.17z"/>
+</vector>

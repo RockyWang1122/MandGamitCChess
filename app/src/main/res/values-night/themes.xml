@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme.（夜间变体；应用已强制浅色，保留以备将来启用） -->
+    <style name="Base.Theme.ChineseChess.Impl" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- 全局统一品牌红（夜间）：替代 Material3 默认蓝紫色主色 -->
+        <item name="colorPrimary">@color/brand_dark</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">@color/brand_dark</item>
+        <item name="colorControlActivated">@color/brand_dark</item>
+        <item name="android:colorControlActivated">@color/brand_dark</item>
+
+        <!-- 全局字体：打包内置魏碑字体（res/font/weibei.ttf），与手机系统是否安装该字体无关 -->
+        <item name="android:fontFamily">@font/weibei</item>
+        <item name="fontFamily">@font/weibei</item>
+    </style>
+
+    <style name="Base.Theme.ChineseChess" parent="Base.Theme.ChineseChess.Impl" />
+
+    <style name="ThemeOverlay.ChineseChess.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_900</item>
+        <item name="fullscreenTextColor">@color/light_blue_A400</item>
+    </style>
+</resources>

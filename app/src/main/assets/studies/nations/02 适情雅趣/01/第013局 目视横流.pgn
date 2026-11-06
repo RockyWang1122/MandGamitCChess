@@ -1,0 +1,14 @@
+[Game "Chinese Chess"]
+[Event "第013局 目视横流"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "4k4/3P2P2/b2N2R2/7r1/2b6/9/9/3n5/4p3r/2R2K3 w - - 0 1"]
+
+{红弃一车，车马兵胜}
+1. 车三平五 象3退5 2. 兵六平五 (将5平4 3. 马六进八) 将5进1 3. 车七进八 1-0

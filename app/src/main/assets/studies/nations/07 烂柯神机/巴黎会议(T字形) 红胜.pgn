@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "巴黎会议(T字形) 红胜"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "*"]
+[FEN "9/9/2NPbkC2/2N1c1R2/4R4/4r4/4c4/3Knr3/9/9 w - - 0 1"]
+
+1. 兵六平五 将6退1 2. 前马进六 将6退1 3. 马七进六 将6平5 4. 兵五进一 将5平4 5. 兵五进一 将4平5 6. 车三平五 将5平4 7. 前车进三 *

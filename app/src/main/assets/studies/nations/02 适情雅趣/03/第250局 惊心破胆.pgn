@@ -1,0 +1,14 @@
+[Game "Chinese Chess"]
+[Event "第250局 惊心破胆"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "2rak1C2/5R3/3a5/6N2/9/9/9/r3C4/4p4/3K4R w - - 0 1"]
+
+{红车破中心胜}
+1. 马三进五 (车1平5 2. 马五进四) 士4进5 2. 车四平五 士4退5 3. 马五进三 将5平6 4. 车一平四 1-0

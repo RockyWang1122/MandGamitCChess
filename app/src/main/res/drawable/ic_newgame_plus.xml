@@ -1,0 +1,13 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- 红底圆 + 白色加号 -->
+    <path
+        android:fillColor="#4E4E4C"
+        android:pathData="M24,24 m-20,0 a20,20 0 1,0 40,0 a20,20 0 1,0 -40,0" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M21,13 h6 v8 h8 v6 h-8 v8 h-6 v-8 h-8 v-6 h8 z" />
+</vector>

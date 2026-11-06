@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 学习资料列表条目背景：半透明白色长条，叠在棋盘背景图上提升可读性 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#CCFFFFFF" />
+    <corners android:radius="8dp" />
+</shape>

@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "马兵冲锋 红胜"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "*"]
+[FEN "3a1k2C/3Pa4/9/1N7/4PN3/9/n1r6/4B4/4p4/3K5 w - - 0 1"]
+
+1. 马四进三 将6平5 2. 马三进二 士5退6 3. 马二退四 士6进5 4. 兵六进一 士5退4 5. 马八进六 将5进1 6. 炮一退一 将5进1 7. 兵五进一 *

@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "马禁单士"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "9/3kaN3/9/9/9/9/9/9/9/4K4 w - - 0 1"]
+
+1. 马四退五 将4进1 2. 马五进三 士5进6 3. 马三退四 士6退5 4. 马四进六 士5退6 5. 马六进八 1-0

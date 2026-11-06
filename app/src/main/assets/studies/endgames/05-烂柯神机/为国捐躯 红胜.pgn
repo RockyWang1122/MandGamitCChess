@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "为国捐躯 红胜"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "*"]
+[FEN "5k3/4nrP2/4c4/NN2P4/2b6/R8/C1P6/4n4/3p5/2p1K4 w - - 0 1"]
+
+1. 兵三进一 将6平5 2. 马八进六 将5平4 3. 马九进八 将4进1 4. 马八退七 将4进1 5. 兵五进一 象3退5 6. 车九平六 前马退4 7. 马七进八 将4退1 8. 炮九进五 *

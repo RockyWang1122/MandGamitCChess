@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 悬浮窗行棋方单选：小号圆点（15dp）。选中=红圈红点，未选中=灰圈 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="#00000000" />
+                    <stroke android:width="2dp" android:color="@color/brand_dark" />
+                    <size android:width="15dp" android:height="15dp" />
+                </shape>
+            </item>
+            <item android:top="4.5dp" android:bottom="4.5dp" android:left="4.5dp" android:right="4.5dp">
+                <shape android:shape="oval">
+                    <solid android:color="@color/brand_dark" />
+                    <size android:width="6dp" android:height="6dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#00000000" />
+            <stroke android:width="2dp" android:color="#9E9E9E" />
+            <size android:width="15dp" android:height="15dp" />
+        </shape>
+    </item>
+</selector>

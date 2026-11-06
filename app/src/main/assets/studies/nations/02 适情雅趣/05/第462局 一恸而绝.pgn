@@ -1,0 +1,14 @@
+[Game "Chinese Chess"]
+[Event "第462局 一恸而绝"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "4C4/4P4/3k5/9/6b2/9/9/9/9/4K4 w - - 0 1"]
+
+{炮打象胜}
+1. 帅五进一 象7退9 2. 炮五平八 {不论黑象9进7或退7，红均炮八进二，打死黑象胜。} 1-0

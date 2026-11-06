@@ -1,0 +1,14 @@
+[Game "Chinese Chess"]
+[Event "第142局 七国连衡"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "1n2ka3/R3a1P2/1P2b1n1C/5R3/2b1P4/1N7/9/5p3/4r4/3p1K3 w - - 0 1"]
+
+{红车平中心胜}
+1. 炮一进二 象5退7 2. 车九平五 将5进1 3. 车四进二 将5进1 4. 马八进七 将5平4 5. 车四平六 马2进4 6. 兵八平七 1-0

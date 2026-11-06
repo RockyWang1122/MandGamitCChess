@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- 占位图标：云库（书本），后续可整体替换本文件 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M4.2,5.2 C6,4.6 8,4.7 9.6,5.4 L11,6 L11,18.6 C9.4,17.8 7.2,17.7 4.8,18.2 L4.2,18.3 Z M13,6 l1.4,-0.6 c1.6,-0.7 3.6,-0.8 5.4,-0.2 l0,13.1 l-0.6,-0.1 c-2.4,-0.5 -4.6,-0.4 -6.2,0.4 Z" />
+    <path
+        android:pathData="M12,6.2 L12,18.8"
+        android:strokeColor="#4E4E4C"
+        android:strokeWidth="1" />
+</vector>

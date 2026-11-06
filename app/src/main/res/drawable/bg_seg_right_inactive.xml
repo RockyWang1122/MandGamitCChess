@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 分段切换按钮：右段·未选中（长方形+右侧半圆，半透明） -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#33000000" />
+    <corners
+        android:topRightRadius="12.5dp"
+        android:bottomRightRadius="12.5dp" />
+    <size android:width="25dp" android:height="25dp" />
+</shape>

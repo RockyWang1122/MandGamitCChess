@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "杀法大全"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "9/9/3k4b/9/9/2N6/9/9/9/4K4 w - - 0 1"]
+
+1. 马七进六 象9退7 2. 马六进四 象7进5 3. 马四退五 将4退1 4. 马五进七 将4平5 5. 马七进五  1-0

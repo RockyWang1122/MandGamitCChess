@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "车马对车双兵"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "3N5/1R7/3k5/9/9/9/9/7p1/3pr4/5K3 w - - 0 1"]
+
+1. 车八平二 车5退5 2. 车二退四 (车5平4 3. 马六退八) 将4退1 3. 车二平六 将4平5 4. 马六退七 1-0

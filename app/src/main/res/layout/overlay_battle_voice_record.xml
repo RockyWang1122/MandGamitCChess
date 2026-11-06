@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  好友对战按住说话全屏提示层（不拦截触摸：触摸序列由底部语音按钮持有）。
+  正常态：底部绿色椭圆区 + 白色麦克风 + 绿色"上滑取消发送"（语音发送.jpg）；
+  取消态：底部灰色椭圆区 + 灰色麦克风 + 红色"松开取消"（语音发送2.jpg）。
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="false"
+    android:focusable="false"
+    android:importantForAccessibility="no">
+
+    <!--
+      底部录音区：直径=2×屏宽的正圆，仅顶部 1/4 露出屏幕底部（尺寸/边距在
+      GameActivity.showVoiceRecordOverlay 按屏宽动态设置，这里的 match_parent/300dp
+      仅为编辑期占位）。
+    -->
+    <View
+        android:id="@+id/voiceRecordZone"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_voice_record_green" />
+
+    <!-- 麦克风（bottomMargin 由代码按可见弧区高度设置） -->
+    <ImageView
+        android:id="@+id/voiceRecordMic"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="104dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_voice" />
+
+    <!-- 状态提示文字（弧顶之上，bottomMargin 由代码设置） -->
+    <TextView
+        android:id="@+id/voiceRecordHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="242dp"
+        android:shadowColor="#80000000"
+        android:shadowRadius="6"
+        android:text="上滑取消发送"
+        android:textColor="#2EAD45"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+</FrameLayout>

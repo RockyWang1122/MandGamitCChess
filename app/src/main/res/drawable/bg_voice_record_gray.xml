@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 按住说话上滑进入取消态：底部灰色录音区（对齐"语音发送2.jpg"） -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <gradient
+        android:type="radial"
+        android:centerX="50%"
+        android:centerY="94%"
+        android:gradientRadius="340dp"
+        android:startColor="#F6F6F6"
+        android:endColor="#D2D2D2" />
+</shape>

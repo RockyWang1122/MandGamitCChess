@@ -1,0 +1,14 @@
+[Game "Chinese Chess"]
+[Event "第169局 阴陵失道"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "2b1R2c1/R3a4/1n2kaN2/4p4/2bP5/6C2/9/9/3r1r3/4K4 w - - 0 1"]
+
+{兵车塞象眼胜}
+1. 马三进四 将5平4 2. 兵六进一 车4退5 3. 车九平六 (将4退1 4. 车五平六 将4退1 5. 炮三进五) 马2退4 4. 炮三进三 1-0

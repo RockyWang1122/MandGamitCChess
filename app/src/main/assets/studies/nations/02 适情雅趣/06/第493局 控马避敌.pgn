@@ -1,0 +1,14 @@
+[Game "Chinese Chess"]
+[Event "第493局 控马避敌（马兵双相和单车）"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1/2-1/2"]
+[FEN "4k4/9/9/8r/9/1NB6/2P6/4B4/9/4K4 w - - 0 1"]
+
+{马保和局}
+1. 马八退九 {马兵双相连环防御，黑车无法攻破，故成和局。} 1/2-1/2

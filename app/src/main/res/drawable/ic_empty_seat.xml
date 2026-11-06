@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  空位占位：虚线圆环 + 加号。
+  注意：VectorDrawable 不支持 strokeDashWidth/strokeDashGap，
+  虚线由 12 段 18° 圆弧 + 12° 间隔直接烘焙在 pathData 中。
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- 虚线圆圈：圆心(12,12) 半径9.5，12 段 18° 弧、12° 间隔 -->
+    <path
+        android:strokeColor="#8A7C66"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="
+            M21.5,12 A9.5,9.5 0 0,1 21.035,14.936
+            M20.227,16.75 A9.5,9.5 0 0,1 18.357,19.060
+            M16.75,20.227 A9.5,9.5 0 0,1 13.975,21.292
+            M12,21.5 A9.5,9.5 0 0,1 10.025,21.292
+            M7.25,20.227 A9.5,9.5 0 0,1 5.643,19.060
+            M3.773,16.75 A9.5,9.5 0 0,1 2.965,14.936
+            M2.5,12 A9.5,9.5 0 0,1 2.965,9.064
+            M3.773,7.25 A9.5,9.5 0 0,1 5.643,4.940
+            M7.25,3.773 A9.5,9.5 0 0,1 10.025,2.708
+            M12,2.5 A9.5,9.5 0 0,1 13.975,2.708
+            M16.75,3.773 A9.5,9.5 0 0,1 18.357,4.940
+            M20.227,7.25 A9.5,9.5 0 0,1 21.035,9.064" />
+
+    <!-- 加号：竖线 -->
+    <path
+        android:pathData="M12,7.8 L12,16.2"
+        android:strokeColor="#8A7C66"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"/>
+
+    <!-- 加号：横线 -->
+    <path
+        android:pathData="M7.8,12 L16.2,12"
+        android:strokeColor="#8A7C66"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"/>
+</vector>

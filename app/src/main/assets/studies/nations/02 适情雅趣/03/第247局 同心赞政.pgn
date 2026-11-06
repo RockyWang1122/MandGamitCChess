@@ -1,0 +1,14 @@
+[Game "Chinese Chess"]
+[Event "第247局 同心赞政"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "6R2/5k3/5a3/5R3/6p2/9/9/4rC2B/2n6/5KBr1 w - - 0 1"]
+
+{车平心胜}
+1. 车三退一 将6退1 2. 车三平五 车5退6 {自我阻塞士和将的通路。红方下着车四平三或车四平一平车照将，即构成闷杀。} 1-0

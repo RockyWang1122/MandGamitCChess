@@ -1,0 +1,14 @@
+[Game "Chinese Chess"]
+[Event "第354局 一虎下山"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "9/3Pak1P1/5a3/9/4N4/9/9/4B4/1p2rp3/2BK5 w - - 0 1"]
+
+{士角兵进胜}
+1. 兵二平三 将6退1 2. 兵六进一 {伏有兵三进一，将6进1，马五进三的杀着。} 士5退4 3. 马五进六 1-0

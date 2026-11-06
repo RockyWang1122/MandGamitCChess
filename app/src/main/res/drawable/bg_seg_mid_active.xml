@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 分段切换按钮：中间段·选中（方形，品牌红） -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#4E4E4C" />
+    <size android:width="25dp" android:height="25dp" />
+</shape>

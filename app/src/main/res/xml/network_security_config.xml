@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 网络安全策略：默认全部禁止明文；仅好友对战联调服务器 IP 放行 ws/http 明文。
+     待服务器配置域名与 TLS 证书后，将 battle.server.url 切回 wss，
+     本文件的 domain 例外即可删除。 -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">120.24.205.84</domain>
+    </domain-config>
+</network-security-config>

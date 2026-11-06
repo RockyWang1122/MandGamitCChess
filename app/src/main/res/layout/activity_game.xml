@@ -1,0 +1,635 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/boardbg"
+    android:theme="@style/ThemeOverlay.ChineseChess.FullscreenContainer"
+    tools:context=".GameActivity">
+
+    <!-- ===== 布局基准：设计稿 1080×2376，位置全部用百分比参考线定位 ===== -->
+    <!-- 垂直参考线 -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_content_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_board_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9509" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_card_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9694" />
+
+    <!-- 水平参考线 -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_board_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1086" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_card_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6174" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_card_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9007" />
+
+    <!-- P1：顶部栏（返回键 + 轮走/局势提示） -->
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:tag="inset_status_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="start|center_vertical"
+                android:layout_marginStart="6dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="返回"
+                app:srcCompat="@drawable/ic_nav_back" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/brand_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="红优 30 · 思考中" />
+
+        </FrameLayout>
+
+        <!-- 好友对战断线提示条（仅网络对战断线时显示） -->
+        <TextView
+            android:id="@+id/battleBanner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="54dp"
+            android:background="@drawable/bg_panel_card"
+            android:gravity="center"
+            android:paddingVertical="6dp"
+            android:text="连接中断，重连中…"
+            android:textColor="@color/brand_dark"
+            android:textSize="15sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/gl_board_right"
+            app:layout_constraintStart_toStartOf="@id/gl_content_left"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- P2：棋盘主体（ChessView 按 1414:1716 比例自适应；短屏超高度时自动等比缩小） -->
+        <!-- 左右边界与信息卡片一致（5%→96.94%），棋盘缩小居中后与卡片左右对称 -->
+        <FrameLayout
+            android:id="@+id/chesslayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/gl_card_top"
+            app:layout_constraintEnd_toEndOf="@id/gl_card_right"
+            app:layout_constraintStart_toStartOf="@id/gl_content_left"
+            app:layout_constraintTop_toTopOf="@id/gl_board_top" />
+
+        <!-- P3：信息展示卡片（设计坐标 54,1467 → 1047,2140；四个分段按钮位于卡片顶部，随卡片自动定位） -->
+        <LinearLayout
+            android:id="@+id/infoCard"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_panel_card"
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/gl_card_bottom"
+            app:layout_constraintEnd_toEndOf="@id/gl_card_right"
+            app:layout_constraintStart_toStartOf="@id/gl_content_left"
+            app:layout_constraintTop_toTopOf="@id/gl_card_top">
+
+            <!-- 展开态头部：四个分段切换按钮居中，左上角书钉按钮用于折叠 -->
+            <FrameLayout
+                android:id="@+id/expandedHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/tabThinking"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="1dp"
+                    android:background="@drawable/bg_seg_left_active"
+                    android:contentDescription="引擎思考"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_tab_thinking" />
+
+                <ImageView
+                    android:id="@+id/tabEval"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="1dp"
+                    android:background="@drawable/bg_seg_mid_inactive"
+                    android:contentDescription="局势评估"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_tab_eval" />
+
+                <ImageView
+                    android:id="@+id/tabCloud"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="1dp"
+                    android:background="@drawable/bg_seg_mid_inactive"
+                    android:contentDescription="云库着法"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_tab_cloudbook" />
+
+                <ImageView
+                    android:id="@+id/tabMoves"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="1dp"
+                    android:background="@drawable/bg_seg_right_inactive"
+                    android:contentDescription="对局棋谱"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_tab_moves" />
+
+            </LinearLayout>
+
+                <!-- 展开态书钉：点击折叠信息栏（图标自带黑色，与美工稿一致） -->
+                <ImageButton
+                    android:id="@+id/pinButton"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_marginStart="2dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="折叠信息栏"
+                    android:padding="5dp"
+                    app:srcCompat="@drawable/ic_unfix" />
+
+            </FrameLayout>
+
+            <!-- 折叠态：仅显示一条，左书钉（灰色）+ 居中提示，点整条恢复展开 -->
+            <LinearLayout
+                android:id="@+id/collapsedBar"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/fixIcon"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="4dp"
+                    android:contentDescription="展开信息栏"
+                    android:padding="3dp"
+                    app:srcCompat="@drawable/ic_fix" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="信息栏已隐藏"
+                    android:textColor="@color/tab_inactive_icon"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <!-- 四个内容页 -->
+            <FrameLayout
+                android:id="@+id/infoContent"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="6dp">
+
+                <!-- 页1：引擎思考细节 -->
+                <ScrollView
+                    android:id="@+id/pageThinking"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingTop="8dp">
+
+                        <LinearLayout
+                            android:id="@+id/engineMetricRow"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="6dp">
+
+                            <!-- 深度值最短格子收窄、时间值最长格子加宽，防止大字体下换行 -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.75"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="深度 "
+                                    android:textColor="@color/panel_text_dark"
+                                    android:textSize="17sp" />
+
+                                <TextView
+                                    android:id="@+id/depthText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:maxLines="1"
+                                    android:ellipsize="end"
+                                    android:textColor="@color/brand_dark"
+                                    android:textSize="18sp"
+                                    tools:text="11" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.95"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="节点 "
+                                    android:textColor="@color/panel_text_dark"
+                                    android:textSize="17sp" />
+
+                                <TextView
+                                    android:id="@+id/nodesText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:maxLines="1"
+                                    android:ellipsize="end"
+                                    android:textColor="@color/brand_dark"
+                                    android:textSize="18sp"
+                                    tools:text="36K" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="时间 "
+                                    android:textColor="@color/panel_text_dark"
+                                    android:textSize="17sp" />
+
+                                <TextView
+                                    android:id="@+id/timeText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:maxLines="1"
+                                    android:ellipsize="end"
+                                    android:textColor="@color/brand_dark"
+                                    android:textSize="18sp"
+                                    tools:text="0.6秒" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!-- 好友对战状态块（仅网络对战模式显示，替代引擎指标行与PV） -->
+                        <LinearLayout
+                            android:id="@+id/battleStatusBlock"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="14dp"
+                            android:paddingTop="6dp"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/battleRoomCode"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:textColor="@color/brand_dark"
+                                android:textSize="18sp"
+                                tools:text="房间号 123456" />
+
+                            <TextView
+                                android:id="@+id/battleMyColor"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:paddingTop="8dp"
+                                android:textColor="@color/panel_text_dark"
+                                android:textSize="16sp"
+                                tools:text="我方执子：红方（先行）" />
+
+                            <TextView
+                                android:id="@+id/battleConnState"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:paddingTop="8dp"
+                                android:textColor="@color/panel_text_dark"
+                                android:textSize="16sp"
+                                tools:text="连接状态：已连接" />
+
+                            <TextView
+                                android:id="@+id/battleOpponentState"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:paddingTop="8dp"
+                                android:textColor="@color/panel_text_dark"
+                                android:textSize="16sp"
+                                tools:text="对手：在线" />
+
+                        </LinearLayout>
+
+                        <!-- 引擎PV着法：代码动态生成每行4个着法（红黑红黑各占一列） -->
+                        <LinearLayout
+                            android:id="@+id/thinkingMoves"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="10dp"
+                            android:paddingTop="12dp" />
+
+                    </LinearLayout>
+
+                </ScrollView>
+
+                <!-- 页2：双方优劣评估曲线 -->
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/trendchart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" />
+
+                <!-- 页3：云库参考走法 -->
+                <FrameLayout
+                    android:id="@+id/pageCloud"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/cloudStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="正在查询云库..."
+                        android:textColor="@color/tab_inactive_icon"
+                        android:textSize="15sp" />
+
+                    <ScrollView
+                        android:id="@+id/cloudScroll"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scrollbars="none"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:id="@+id/cloudMoves"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="4dp" />
+
+                    </ScrollView>
+
+                </FrameLayout>
+
+                <!-- 页4：对局棋谱 -->
+                <ScrollView
+                    android:id="@+id/movesScroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:id="@+id/movesContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="14dp" />
+
+                </ScrollView>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <!-- P4：底部5个操作按钮（卡片下沿 90.07% 至屏幕底部） -->
+        <LinearLayout
+            android:id="@+id/bottomBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_bottom_bar"
+            android:orientation="horizontal"
+            android:paddingTop="6dp"
+            android:paddingBottom="8dp"
+            android:tag="inset_nav_bar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/gl_card_bottom">
+
+            <LinearLayout
+                android:id="@+id/newGameButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_btn_newgame"
+                    android:contentDescription="新对局" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="新对局"
+                    android:textColor="@color/brand_dark"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/engineModeButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/opponentIcon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_opponent_engine_black"
+                    android:contentDescription="对手" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="引擎"
+                    android:textColor="@color/brand_dark"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/undoButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_btn_undo"
+                    android:contentDescription="悔棋" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="悔棋"
+                    android:textColor="@color/brand_dark"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/flipButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_editor_flip"
+                    android:contentDescription="翻转" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="翻转"
+                    android:textColor="@color/brand_dark"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/moreButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_btn_more"
+                    android:contentDescription="更多" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="更多"
+                    android:textColor="@color/brand_dark"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- 好友对战：收到语音时左下角喇叭动画（播放期间显示，三帧交替） -->
+        <ImageView
+            android:id="@+id/battleVoiceIndicator"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="10dp"
+            android:contentDescription="语音播放中"
+            android:src="@drawable/ic_voice_anim"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/bottomBar"
+            app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

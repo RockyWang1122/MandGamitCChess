@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 底部"更多"按钮：收纳对弈相关的其他功能 -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/more_engine_settings"
+        android:title="引擎设置" />
+    <item
+        android:id="@+id/more_alt_move"
+        android:title="引擎变着" />
+    <item
+        android:id="@+id/more_quick_move"
+        android:title="闪电出着" />
+    <item
+        android:id="@+id/more_import_fen"
+        android:title="导入FEN" />
+    <item
+        android:id="@+id/more_export_fen"
+        android:title="导出FEN" />
+    <item
+        android:id="@+id/more_exit"
+        android:title="退出对局" />
+</menu>

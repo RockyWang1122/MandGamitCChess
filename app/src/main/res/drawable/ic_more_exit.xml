@@ -1,0 +1,13 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="36dp"
+    android:height="36dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- 占位：退出对局（门+箭头） -->
+    <path
+        android:strokeColor="#4E4E4C"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M9,21 L5,21 L5,3 L9,3 M16,17 L21,12 L16,7 M21,12 L9,12" />
+</vector>

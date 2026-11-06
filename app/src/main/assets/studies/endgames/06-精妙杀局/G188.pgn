@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "象棋路边摊"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "9/9/3k1P3/9/1P1CR2P1/1nN3rc1/2n3r2/3K1p3/4p4/9 w - - 0 1"]
+
+1. 兵四平五 将4退1 2. 兵五进一 将4退1 3. 马七进六 马3退4 4. 兵五进一 将4进1 5. 马六进八 将4进1 6. 马八进七 将4退1 7. 车五进三  1-0

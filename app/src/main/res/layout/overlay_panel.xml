@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 连线悬浮窗：左侧状态 + 2 行按钮（第二行右侧为行棋方单选）+ 小棋盘 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/overlay_root"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/overlay_bg"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="horizontal"
+    android:paddingHorizontal="6dp"
+    android:paddingVertical="0dp">
+
+    <!-- 左列：状态文本 + 2 行按钮（每行 2 个） -->
+    <LinearLayout
+        android:layout_width="176dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/overlay_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="75dp"
+            android:ellipsize="end"
+            android:maxLines="6"
+            android:text="识别中…"
+            android:textColor="#FFE082"
+            android:textSize="13sp" />
+
+        <!-- 按钮区两列：左列 更新棋局/关闭；右列纵向对齐 停止/我方走/对方走。
+             RadioGroup 兼作右列容器：两单选互斥；选中态随识别自动刷新，点选可手动纠正 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/overlay_btn_turn"
+                    style="@style/OverlayButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="2dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="0dp"
+                    android:text="更新棋局" />
+
+                <TextView
+                    android:id="@+id/overlay_btn_close"
+                    style="@style/OverlayButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="0dp"
+                    android:text="关闭" />
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/overlay_turn_group"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="2dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/overlay_btn_pause"
+                    style="@style/OverlayButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="0dp"
+                    android:text="停止" />
+
+                <RadioButton
+                    android:id="@+id/overlay_radio_mine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:paddingStart="3dp"
+                    android:paddingEnd="0dp"
+                    android:paddingTop="1dp"
+                    android:paddingBottom="1dp"
+                    android:button="@drawable/radio_small"
+                    android:text="我方走"
+                    android:textColor="#FFE082"
+                    android:textSize="10sp" />
+
+                <RadioButton
+                    android:id="@+id/overlay_radio_opp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10.5dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:paddingStart="3dp"
+                    android:paddingEnd="0dp"
+                    android:paddingTop="1dp"
+                    android:paddingBottom="1dp"
+                    android:button="@drawable/radio_small"
+                    android:text="对方走"
+                    android:textColor="#FFE082"
+                    android:textSize="10sp" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- 心跳点：持续微变 alpha 强制合成器产帧（MediaProjection 静止画面不出帧，
+             无心跳时识别循环会停摆）。1dp、2%~5% 透明度，肉眼不可见 -->
+        <View
+            android:id="@+id/overlay_heartbeat"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="2dp"
+            android:background="#FFFFFF"
+            android:alpha="0.02" />
+    </LinearLayout>
+
+    <!-- 小棋盘：高度固定为面板最高者，宽度按棋盘图比例自适应（上下无空隙） -->
+    <com.mandgamit.chess.assist.ui.OverlayChessView
+        android:id="@+id/overlay_chess"
+        android:layout_width="wrap_content"
+        android:layout_height="193dp"
+        android:layout_marginStart="6dp" />
+
+</LinearLayout>

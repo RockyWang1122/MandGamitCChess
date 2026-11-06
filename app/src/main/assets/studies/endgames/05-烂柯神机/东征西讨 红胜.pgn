@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "东征西讨 红胜"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "*"]
+[FEN "3a1a3/2PcPnC2/2nkb3R/9/2b6/9/9/9/5p3/2rAK1pC1 w - - 0 1"]
+
+1. 炮二进七 象5进7 2. 炮二退一 象3退5 3. 炮三退一 象5进3 4. 炮三进二 象3退5 5. 炮二进一 象5进3 6. 炮二进二 象7退9 7. 炮三平六 炮4进8 8. 兵五平六 马6退4 9. 炮二平六 *

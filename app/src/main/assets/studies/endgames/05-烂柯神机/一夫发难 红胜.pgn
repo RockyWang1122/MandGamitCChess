@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "一夫发难 红胜"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "*"]
+[FEN "1r1ak1n2/r3aP1Nn/9/8C/9/9/7RR/9/4pp3/3Kc4 w - - 0 1"]
+
+1. 兵四进一 士5退6 2. 车二平五 炮5退3 3. 车一平五 士6进5 4. 炮一平五 士5进6 5. 炮五退五 士6退5 6. 车五进五 *

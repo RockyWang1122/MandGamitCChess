@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 昵称输入对话框内容 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="4dp">
+
+    <EditText
+        android:id="@+id/edit_nick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="中文最多 4 字 / 英文最多 8 字符"
+        android:singleLine="true"
+        android:textSize="15sp"
+        android:autofillHints="nickname"
+        android:inputType="text" />
+</LinearLayout>

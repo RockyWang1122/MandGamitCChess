@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "环绕一周 红胜"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "*"]
+[FEN "C3k4/2PPa4/1n1a3P1/9/6b1N/9/5p3/2CA1p3/5r3/4K1Br1 w - - 0 1"]
+
+1. 兵七进一 马2退1 2. 兵七平六 将5平6 3. 炮七进七 将6进1 4. 马一进三 将6进1 5. 兵二平三 将6退1 6. 兵三进一 将6进1 7. 炮七退二 象7退5 8. 马三退五 *

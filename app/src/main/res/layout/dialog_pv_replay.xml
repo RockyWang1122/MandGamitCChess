@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 引擎思考细节推演：4个图标按钮 + 与大棋盘同局面的小棋盘，按引擎PV逐着回放 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_pv_dialog"
+    android:paddingHorizontal="12dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="10dp">
+
+    <!-- 标题栏 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="思考细节推演"
+            android:textColor="@color/brand_dark"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/pvReplayClose"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:text="✕"
+            android:textColor="@color/brand_dark"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <!-- 导航按钮：回初始 / 上一步 / 下一步 / 最后一步（仅图标，紧凑居中） -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/pvBtnFirst"
+            style="@style/PvNavButton"
+            android:contentDescription="回到初始局面"
+            android:src="@drawable/ic_pv_first" />
+
+        <ImageButton
+            android:id="@+id/pvBtnPrev"
+            style="@style/PvNavButton"
+            android:contentDescription="上一步"
+            android:src="@drawable/ic_pv_prev" />
+
+        <ImageButton
+            android:id="@+id/pvBtnNext"
+            style="@style/PvNavButton"
+            android:contentDescription="下一步"
+            android:src="@drawable/ic_pv_next" />
+
+        <ImageButton
+            android:id="@+id/pvBtnLast"
+            style="@style/PvNavButton"
+            android:contentDescription="最后一步"
+            android:src="@drawable/ic_pv_last" />
+    </LinearLayout>
+
+    <!-- 推演小棋盘：仅展示局面，占满内容宽度；棋盘图自带边距，两侧棋子可完整显示 -->
+    <com.mandgamit.chess.assist.ui.OverlayChessView
+        android:id="@+id/pvBoard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="3dp" />
+
+    <!-- 当前推演位置 -->
+    <TextView
+        android:id="@+id/pvStepText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/brand_dark"
+        android:textSize="16sp"
+        tools:text="初始局面（0/16）" />
+</LinearLayout>

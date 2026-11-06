@@ -1,0 +1,14 @@
+[Game "Chinese Chess"]
+[Event "第239局 弃短取长"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "4kab2/5P3/4b1n2/1N1N5/9/1n4C2/9/3p5/4p4/3K5 w - - 0 1"]
+
+{弃马，炮胜}
+1. 马八进六 将5平4 2. 前马进八 将4平5 3. 马六进七 将5平4 4. 马七退五 将4进1 5. 马五进四 马7退6 6. 炮三进四 1-0

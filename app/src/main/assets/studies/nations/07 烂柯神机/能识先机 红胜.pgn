@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "能识先机 红胜"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "*"]
+[FEN "5a3/3knP3/4b4/3PC4/3NN4/9/9/9/3pp1p2/5K3 w - - 0 1"]
+
+1. 兵六进一 将4退1 2. 炮五平六 将4平5 3. 兵四进一 *

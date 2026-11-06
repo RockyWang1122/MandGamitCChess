@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 识别功能：拍照 + 读取图库（Android 13+ 细化媒体权限） -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- 连线（屏幕识别 · 悬浮窗指导）所需权限：录屏与悬浮窗均为常规系统能力 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- 好友对战：引导用户关闭电池优化（国产 ROM 后台清理会杀前台服务之外的连接） -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <!-- 好友对战：发送语音消息 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!-- Android 11+ 包可见性：跳转国产 ROM 自启动/后台管理页前需能解析对应组件 -->
+    <queries>
+        <package android:name="com.miui.securitycenter" />
+        <package android:name="com.coloros.safecenter" />
+        <package android:name="com.oppo.safe" />
+        <package android:name="com.iqoo.relationmanager" />
+        <package android:name="com.huawei.systemmanager" />
+        <package android:name="com.hihonor.systemmanager" />
+        <package android:name="com.meizu.safe" />
+    </queries>
+
+    <application
+        android:name=".ChessApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@drawable/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ChineseChess"
+        tools:targetApi="28">
+        <activity
+            android:name=".BoardEditorActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <!--
+          singleTop：好友对战保活通知点击返回时复用栈顶对局页，避免再压一个 GameActivity。
+          仅应用内（含本应用通知 PendingIntent）启动，无需 exported。
+        -->
+        <activity
+            android:name=".GameActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+        <!-- 好友对战大厅：棋桌列表 / 入座 / 观战 -->
+        <activity
+            android:name=".battle.ui.LobbyActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".ManualActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+        <!-- 残局/进阶做题页 -->
+        <activity
+            android:name=".PuzzleActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+        <!-- 学习资料列表 -->
+        <activity
+            android:name=".StudyListActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <!-- 棋谱入口页：对局棋谱 / 内置棋谱 -->
+        <activity
+            android:name=".ManualsHubActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <!-- 对局棋谱列表（APP 私有目录 PGN 棋谱） -->
+        <activity
+            android:name=".GameRecordsActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <!--
+          alwaysRetainTaskState：默认 false 时任务长时间在后台会被系统清到根 Activity，
+          表现为好友对战中切出 APP 再回来直接掉到主界面。置 true 始终保留完整任务栈。
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            android:alwaysRetainTaskState="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- 文件选择器（filepicker 模块）：覆盖其自带主题，统一使用内置魏碑字体 -->
+        <activity
+            android:name="me.rosuh.filepicker.FilePickerActivity"
+            android:theme="@style/Theme.ChineseChess.FilePicker"
+            tools:replace="android:theme" />
+        <activity
+            android:name=".assist.ui.AssistActivity"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+        <!-- 棋盘识别：历史 + 拍照/选图 + 识别结果 + 识别编辑 -->
+        <activity
+            android:name=".recognize.RecognitionActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".recognize.RecognitionResultActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".recognize.RecognitionEditActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <!-- 拍照输出用的 FileProvider -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <service
+            android:name=".assist.ScreenAssistService"
+            android:exported="false"
+            android:foregroundServiceType="mediaProjection" />
+        <!-- 好友对战前台保活：dataSync 类型 + WAKE_LOCK 保持后台连接不断 -->
+        <service
+            android:name=".battle.BattleKeepAliveService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+    </application>
+
+</manifest>

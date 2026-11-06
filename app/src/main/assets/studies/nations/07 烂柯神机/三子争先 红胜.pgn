@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "三子争先 红胜"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "*"]
+[FEN "1r1k5/2P1aP3/3aPN3/9/9/9/9/9/4p4/3K5 w - - 0 1"]
+
+1. 兵七平六 将4平5 2. 兵五进一 士4退5 3. 兵六平五 *

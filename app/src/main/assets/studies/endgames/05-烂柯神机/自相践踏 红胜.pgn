@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "自相践踏 红胜"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "*"]
+[FEN "4k4/2NPaR3/3nb1n2/9/9/9/9/5pC2/4p4/r2p1K3 w - - 0 1"]
+
+1. 兵六平五 将5平4 2. 兵五进一 马4退5 3. 马七退五 马7退5 4. 炮三进七 将4进1 5. 马五退七 将4进1 6. 车四退一 *

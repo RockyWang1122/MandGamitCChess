@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "四面楚歌 红胜"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "*"]
+[FEN "1n1k4C/2NcR4/4b3N/9/6b2/9/C1r6/9/4p1p2/5K3 w - - 0 1"]
+
+1. 炮九进六 马2进1 2. 马一进二 象5退7 3. 马二退三 象7进9 4. 马三进四 象9退7 5. 车五平六 将4平5 6. 马四退三 象7进9 7. 车六平二 车3退5 8. 马三进四 *

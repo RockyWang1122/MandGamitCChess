@@ -1,0 +1,41 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ChineseChess.Impl" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- 全局统一品牌红：替代 Material3 默认蓝紫色主色。
+             覆盖 CheckBox/RadioButton/Switch/SeekBar/ProgressBar、对话框按钮、文本选择等 -->
+        <item name="colorPrimary">@color/brand_dark</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">@color/brand_dark</item>
+        <item name="colorControlActivated">@color/brand_dark</item>
+        <item name="android:colorControlActivated">@color/brand_dark</item>
+
+        <!-- 窗口背景显式浅色：即使内容布局未及延伸，也不会露出黑色条块 -->
+        <item name="android:windowBackground">@color/window_bg_light</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+
+        <!-- 全局字体：打包内置魏碑字体（res/font/weibei.ttf），与手机系统是否安装该字体无关 -->
+        <item name="android:fontFamily">@font/weibei</item>
+        <item name="fontFamily">@font/weibei</item>
+    </style>
+
+    <style name="Base.Theme.ChineseChess" parent="Base.Theme.ChineseChess.Impl" />
+
+    <style name="Theme.ChineseChess" parent="Base.Theme.ChineseChess" />
+
+    <style name="Theme.ChineseChess.Fullscreen" parent="Theme.ChineseChess">
+        <item name="android:actionBarStyle">@style/Widget.Theme.ChineseChess.ActionBar.Fullscreen</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+    <style name="ThemeOverlay.ChineseChess.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
+        <item name="fullscreenTextColor">@color/light_blue_A200</item>
+    </style>
+
+    <!-- 文件选择器（filepicker 模块）覆盖主题：保持浅色 NoActionBar，统一内置魏碑字体 -->
+    <style name="Theme.ChineseChess.FilePicker" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">@font/weibei</item>
+        <item name="fontFamily">@font/weibei</item>
+    </style>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="choice_color_1">#fffa00</color>
+    <color name="choice_color_2">#ff9500</color>
+    <color name="choice_color_3">#5ed500</color>
+    <color name="choice_color_4">#ffbb00</color>
+    <color name="choice_color_5">#00c6b0</color>
+    <color name="move_history_background">#0D000000</color>
+    <color name="game_hint_background">#80FFFFFF</color>
+
+    <!-- 对弈界面新样式 -->
+    <color name="brand_red">#C23B33</color>
+    <!-- 新品牌主色：深炭灰（替代原品牌红，应用于主题、控件、图标等全部品牌色场景） -->
+    <color name="brand_dark">#4E4E4C</color>
+    <!-- 暗红：红方语义色（红方一侧的图标/文字，如引擎执黑时的人、引擎执红时的芯片、红先文字） -->
+    <color name="dark_red">#C30600</color>
+    <color name="window_bg_light">#F4F3F1</color>
+    <color name="panel_card">#F2E6D3</color>
+    <color name="tab_inactive_circle">#EAD9C0</color>
+    <color name="tab_inactive_icon">#B09880</color>
+    <color name="panel_text_dark">#3D2C22</color>
+    <color name="move_red">#C23B33</color>
+
+</resources>

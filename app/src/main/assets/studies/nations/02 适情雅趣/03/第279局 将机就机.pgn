@@ -1,0 +1,14 @@
+[Game "Chinese Chess"]
+[Event "第279局 将机就机"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "3ak4/1C2aR3/2n1c4/7N1/9/7R1/9/4C4/4A1rnr/3AK3c w - - 0 1"]
+
+{红马并车胜}
+1. 马二进三 车7进1 2. 车四退八 车7退8 3. 车四进九 将5平6 4. 车二进五 1-0

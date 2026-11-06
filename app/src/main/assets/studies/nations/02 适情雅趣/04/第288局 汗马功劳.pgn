@@ -1,0 +1,14 @@
+[Game "Chinese Chess"]
+[Event "第288局 汗马功劳"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "2ba1kbRC/3Ra4/9/2pPp4/3Nc4/9/4P4/3pB1N2/r2pA4/c3KAB2 w - - 0 1"]
+
+{红弃车，马胜}
+1. 兵六平五 (将6平5 {变一} 2. 车二平三 士5退6 3. 车六平五) 车1平2 2. 车六进一 士5退4 3. 马六进五 将6进1 4. 马五退三 将6平5 5. 车二退一 1-0

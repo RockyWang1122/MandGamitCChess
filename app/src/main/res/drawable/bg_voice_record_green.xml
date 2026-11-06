@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 按住说话：底部绿色录音区（椭圆弧从屏幕底部露出，径向高光对齐"语音发送.jpg"） -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <gradient
+        android:type="radial"
+        android:centerX="50%"
+        android:centerY="94%"
+        android:gradientRadius="340dp"
+        android:startColor="#9BDC9E"
+        android:endColor="#3FB04B" />
+</shape>

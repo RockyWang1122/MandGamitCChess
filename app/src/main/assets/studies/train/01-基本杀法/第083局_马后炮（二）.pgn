@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "象棋基本杀法"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "3k5/9/3a1a3/3cRNC2/9/9/9/3A1A3/6r2/2n1K4 w - - 0 1"]
+
+1. 车五进三 将4进1 2. 车五平六 将4退1 3. 炮三平六 士4退5 4. 马四进六 1-0

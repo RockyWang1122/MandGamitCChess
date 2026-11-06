@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 识别界面历史记录半透明圆角面板（按新识别.jpg 比例，透出山水底图） -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#99FFFFFF" />
+    <corners android:radius="12dp" />
+</shape>

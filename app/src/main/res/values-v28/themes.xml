@@ -1,0 +1,6 @@
+<resources>
+    <!-- API 28+：在公共主题基础上追加挖孔区渲染（仅此处不同，其余配置继承 Impl） -->
+    <style name="Base.Theme.ChineseChess" parent="Base.Theme.ChineseChess.Impl">
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    </style>
+</resources>

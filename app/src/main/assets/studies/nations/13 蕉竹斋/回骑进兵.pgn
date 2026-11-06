@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "回骑进兵"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "3ak4/2P1arP2/8N/9/9/9/9/4p4/p8/3K5 w - - 0 1"]
+
+1. 兵三平四 卒5进1 2. 兵四平三 将5平6 3. 马一退三 卒1平2 4. 兵三进一 将6平5 5. 马三进一 士5进4 6. 兵七平六 1-0

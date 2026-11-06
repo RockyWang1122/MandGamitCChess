@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "千里双龙 红胜"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "*"]
+[FEN "4k4/9/3aN4/9/9/9/7C1/r1Np5/4p1p2/5K3 w - - 0 1"]
+
+1. 马五进三 将5平4 2. 炮二平六 士4退5 3. 马七进六 士5进4 4. 马三退五 将4进1 5. 马六进七 将4平5 6. 炮六平五 *

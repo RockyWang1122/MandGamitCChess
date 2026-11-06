@@ -1,0 +1,13 @@
+[Game "Chinese Chess"]
+[Event "车马兵[卒]攻杀[四]"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "3k1a3/4a4/4P1N2/4R4/3r5/9/1p1pc4/B2AB4/4A4/4K4 w - - 0 1"]
+
+1. 马三进四 士5退6 2. 车五平四 车4平5 3. 车四进三 将4进1 4. 车四退一 将4退1 5. 兵五平六 车5平4 6. 兵六平五 车4平8 7. 帅五平四 1-0

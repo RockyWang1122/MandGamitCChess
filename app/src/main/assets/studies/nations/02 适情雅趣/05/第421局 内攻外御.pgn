@@ -1,0 +1,14 @@
+[Game "Chinese Chess"]
+[Event "第421局 内攻外御"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "C3ka3/4a4/1cC6/9/9/6B1P/p8/9/5p3/4K4 w - - 0 1"]
+
+{禁住边卒胜}
+1. 炮七进二 炮2退2 2. 炮七退一 炮2进1 3. 炮九平八 {禁住黑边卒，使之不能与另一卒及炮构成杀势。} 将5平4 4. 兵一进一 1-0

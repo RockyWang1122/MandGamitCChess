@@ -1,0 +1,14 @@
+[Game "Chinese Chess"]
+[Event "第275局 路车乘马"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "1c1k5/4R4/4N4/4rC3/9/6Rr1/9/6C2/4p4/5K3 w - - 0 1"]
+
+{弃中心马重炮胜}
+1. 车五平六 将4进1 2. 车三进四 将4进1 3. 炮四进一 将4平5 4. 炮三进五 1-0

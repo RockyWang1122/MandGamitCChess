@@ -1,0 +1,14 @@
+[Game "Chinese Chess"]
+[Event "第051局 下车伏谒"]
+[Round ""]
+[Date ""]
+[Site ""]
+[Red ""]
+[RedTeam ""]
+[Black ""]
+[BlackTeam ""]
+[Result "1-0"]
+[FEN "R2akab2/3n3P1/1NC1b4/5R3/2p3p2/9/9/5p3/4r3r/5K3 w - - 0 1"]
+
+{炮将，车杀士胜}
+1. 炮七进二 士4进5 2. 车四进三 将5平6 3. 炮七退一 将6进1 4. 兵二平三 将6进1 5. 车九平四 士5退6 6. 炮七退一 1-0

@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="30dp"
+    android:height="30dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- 占位图标：提示（灯泡），后续可整体替换本文件 -->
+    <path
+        android:fillColor="#4E4E4C"
+        android:pathData="M9,18 h6 v1.4 c0,0.9 -0.7,1.6 -1.6,1.6 h-2.8 c-0.9,0 -1.6,-0.7 -1.6,-1.6 z M9.6,20.6 h4.8 v0 h-4.8 z" />
+    <path
+        android:pathData="M12,3 c-3.6,0 -6.2,2.7 -6.2,6 0,2.2 1.2,3.7 2.2,4.9 c0.7,0.8 1,1.4 1,2.3 h6 c0,-0.9 0.3,-1.5 1,-2.3 c1,-1.2 2.2,-2.7 2.2,-4.9 0,-3.3 -2.6,-6 -6.2,-6 z"
+        android:strokeColor="#4E4E4C"
+        android:strokeWidth="1.8"
+        android:fillColor="#00000000"
+        android:strokeLineJoin="round" />
+</vector>

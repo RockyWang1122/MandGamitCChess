@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 我的昵称徽章：深金底（与状态徽章/离座按钮同一金色系，更饱和以突出） -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#B58A2E" />
+    <corners android:radius="6dp" />
+</shape>
